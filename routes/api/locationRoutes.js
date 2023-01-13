@@ -16,8 +16,8 @@ router.get('/:id', async (req, res) => {
     const locationData = await Location.findByPk(req.params.id, {
       include: [
         {
-          model: Traveller,
-          through: Trip,
+          model: Trip,
+          attributes: ['id', 'traveller_amount', 'trip_budget'],
         },
       ],
     });
